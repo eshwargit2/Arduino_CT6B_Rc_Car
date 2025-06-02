@@ -14,8 +14,27 @@ in Arduino CT6B transmitter and Receiver using make the RC car .in without speed
 
 
 <h3> Arduino to CT6B Receiver </h3>
+<p>Without speed</p>
 <ul>
   <li>Arduino[ A0 ] ---------- throttlePin - CH2 </li>
   <li>Arduino[ A1 ] ---------- steeringPin - CH1 </li>
+</ul>
+
+<h3> Arduino to CT6B   Receiver </h3>
+<p>With speed</p>
+<ul>
+  <li>Arduino[ A0 ] ---------- throttlePin - CH2 </li>
+  <li>Arduino[ A1 ] ---------- steeringPin - CH1 </li>
+  <li>Arduino[ A2 ] ---------- SpeedPin - CH3 </li>
+</ul>
+
+<h3> Arduino to L298N Motor Driver </h3>
+<ul>
+  <li>Arduino[ D3 ] ---------- ENA </li>
+  <li>Arduino[ D5 ] ---------- IN1 </li>
+  <li>Arduino[ D6 ] ---------- IN2 </li>
+  <li>Arduino[ D11 ] ---------- ENB </li>
+  <li>Arduino[ D9 ] ---------- IN3 </li>
+  <li>Arduino[ D10   ] ---------- IN4 </li>
 </ul>
 
