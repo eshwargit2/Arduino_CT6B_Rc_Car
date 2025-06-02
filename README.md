@@ -22,7 +22,6 @@ in Arduino CT6B transmitter and Receiver using make the RC car .in without speed
   <li>Arduino[ A1 ] ---------- steeringPin - CH1 </li>
 </ul>
 
-<h3> Arduino to CT6B   Receiver </h3>
 <p>With speed</p>
 <ul>
   <li>Arduino[ A0 ] ---------- throttlePin - CH2 </li>
