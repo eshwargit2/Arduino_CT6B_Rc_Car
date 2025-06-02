@@ -1,4 +1,4 @@
-// === Motor Driver Pins ===
+
 const int ENA = 3;   // Left motor speed (PWM)
 const int IN1 = 5;
 const int IN2 = 6;
@@ -6,7 +6,7 @@ const int ENB = 11;  // Right motor speed (PWM)
 const int IN3 = 9;
 const int IN4 = 10;
 
-// === Receiver Input Pins ===
+
 const int ch1Pin = A1;  // Steering (Left/Right)
 const int ch3Pin = A2;  // Throttle (Forward/Reverse)
 
@@ -40,32 +40,32 @@ void loop() {
   int speed = 0;
   int steer = 0;
 
-  // === Throttle: center = 1500. Add dead zone ===
+  
   if (ch3Val > 1520) {
-    speed = map(ch3Val, 1520, 2000, 0, 255);  // Forward
+    speed = map(ch3Val, 1520, 2000, 0, 255);  
   } else if (ch3Val < 1480) {
-    speed = map(ch3Val, 1000, 1480, -255, 0);  // Reverse
+    speed = map(ch3Val, 1000, 1480, -255, 0); 
   } else {
-    speed = 0;  // within dead zone
+    speed = 0;  
   }
 
-  // === Steering ===
+  
   if (ch1Val >= 1350 && ch1Val <= 1550) {
-    steer = 0;  // centered
+    steer = 0; 
   } else if (ch1Val >= 1000 && ch1Val <= 2000) {
     steer = map(ch1Val, 1000, 2000, -300, 300);
   }
 
-  // === Steering mix ===
+ 
   int leftSpeed = speed + steer;
   int rightSpeed = speed - steer;
 
   leftSpeed = constrain(leftSpeed, -300, 300);
   rightSpeed = constrain(rightSpeed, -300, 300);
 
-  // === Drive motors ===
-  setMotor(ENA, IN1, IN2, leftSpeed);   // Left
-  setMotor(ENB, IN3, IN4, rightSpeed);  // Right
+ 
+  setMotor(ENA, IN1, IN2, leftSpeed);  
+  setMotor(ENB, IN3, IN4, rightSpeed);  
 }
 
 void setMotor(int enPin, int in1, int in2, int speed) {
@@ -77,7 +77,7 @@ void setMotor(int enPin, int in1, int in2, int speed) {
     digitalWrite(in2, HIGH);
   } else {
     digitalWrite(in1, LOW);
-    digitalWrite(in2, LOW);  // Stop
+    digitalWrite(in2, LOW); 
   }
 
   analogWrite(enPin, abs(speed));
